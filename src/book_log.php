@@ -2,7 +2,7 @@
 
 echo '読書ログを登録してください' .PHP_EOL;
 echo '書籍名:';
-$title = trim(fgets(STDIN)," ");
+$title = trim(fgets(STDIN));
 echo '登録が完了しました'.PHP_EOL .PHP_EOL;
 echo '読書ログを表示します' .PHP_EOL;
 echo '書籍名:'. $title . PHP_EOL;
