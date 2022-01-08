@@ -39,7 +39,7 @@ while(true){
             echo '読書状況:' . $readStatus . PHP_EOL;
             echo '評価:' . $evaluation . PHP_EOL;
             echo '感想:' . $thoughts . PHP_EOL;
-            continue
+            continue;
         }elseif($num === '9'){
             //アプリケーションを終了
         }
