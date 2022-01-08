@@ -21,11 +21,11 @@ while(true){
             continue;
         }
         foreach($logs as $log){
-            echo '書籍名:' .  $logs['title'] . PHP_EOL;
-            echo '著者名:' .  $logs['authorName'] . PHP_EOL;
-            echo '読書状況:' .  $logs['readStatus'] . PHP_EOL;
-            echo '評価:' .  $logs['evaluation'] . PHP_EOL;
-            echo '感想:' .  $logs['thoughts'] . PHP_EOL;
+            echo '書籍名:' .  $log['title'] . PHP_EOL;
+            echo '著者名:' .  $log['authorName'] . PHP_EOL;
+            echo '読書状況:' .  $log['readStatus'] . PHP_EOL;
+            echo '評価:' .  $log['evaluation'] . PHP_EOL;
+            echo '感想:' .  $log['thoughts'] . PHP_EOL;
             echo '------------------------------------------' . PHP_EOL;
         }
         continue;
