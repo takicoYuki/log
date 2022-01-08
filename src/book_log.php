@@ -11,24 +11,16 @@ while(true){
 
     if ($num === '1'){
         //TODO 読書ログを登録
-        echo '読書ログを登録してください' . PHP_EOL;
-        echo '書籍名:';
-        $title = trim(fgets(STDIN));
-        echo '著者名:';
-        $authorName = trim(fgets(STDIN));
-        echo '読書状況:';
-        $readStatus = trim(fgets(STDIN));
-        echo '評価:';
-        $evaluation = trim(fgets(STDIN));
-        echo '感想:';
-        $thoughts = trim(fgets(STDIN));
-        add_read_log($title, $authorName, $readStatus, $evaluation, $thoughts);
-        echo '登録が完了しました';
+        $log = createLogs();
         continue;
     }elseif($num === '2'){
         //TODO 読書ログを表示
+        echo '登録されている読書ログを表示します' . PHP_EOL;
+        if(count($log) === 0 ){
+            echo '読書ログはまだ登録されていません' .PHP_EOL;
+            continue;
+        }
         foreach($log as $logs){
-            echo '登録されている読書ログを表示します' . PHP_EOL;
             echo '書籍名:' .  $logs[$title] . PHP_EOL;
             echo '著者名:' .  $logs[$authorName] . PHP_EOL;
             echo '読書状況:' .  $logs[$readStatus] . PHP_EOL;
@@ -46,15 +38,33 @@ while(true){
 /*
     読書ログをlog配列に追加する
 */
-function add_read_log($title,$authorName,$readStatus,$evaluation,$thoughts){
-
-    $log[] = [
+function createLogs(){
+    echo '読書ログを登録してください' . PHP_EOL;
+    echo '書籍名:';
+    $title = trim(fgets(STDIN));
+    echo '著者名:';
+    $authorName = trim(fgets(STDIN));
+    echo '読書状況:';
+    $readStatus = trim(fgets(STDIN));
+    echo '評価:';
+    $evaluation = trim(fgets(STDIN));
+    echo '感想:';
+    $thoughts = trim(fgets(STDIN));
+    echo '登録が完了しました';
+    return  [
         'title' => $title,
         'authorName' => $authorName,
         'readStatus' => $readStatus,
         'evaluation' => $evaluation,
         'thoughts' => $thoughts,
     ];
+}
+
+/*
+    読書ログを表示させる
+*/
+function echo_read_log(){
 
 }
+
 ?>
