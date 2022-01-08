@@ -27,13 +27,14 @@ while(true){
         continue;
     }elseif($num === '2'){
         //TODO 読書ログを表示
-        for($i = 0; $i < count($log); ++$i){
+        foreach($log as $logs){
             echo '登録されている読書ログを表示します' . PHP_EOL;
-            echo '書籍名:' .  $log[$i][$title] . PHP_EOL;
-            echo '著者名:' .  $log[$i][$authorName] . PHP_EOL;
-            echo '読書状況:' .  $log[$i][$readStatus] . PHP_EOL;
-            echo '評価:' .  $log[$i][$evaluation] . PHP_EOL;
-            echo '感想:' .  $log[$i][$thoughts] . PHP_EOL;
+            echo '書籍名:' .  $logs[$title] . PHP_EOL;
+            echo '著者名:' .  $logs[$authorName] . PHP_EOL;
+            echo '読書状況:' .  $logs[$readStatus] . PHP_EOL;
+            echo '評価:' .  $logs[$evaluation] . PHP_EOL;
+            echo '感想:' .  $logs[$thoughts] . PHP_EOL;
+            echo '------------------------------------------' . PHP_EOL;
         }
         continue;
     }elseif($num === '9'){
@@ -47,13 +48,13 @@ while(true){
 */
 function add_read_log($title,$authorName,$readStatus,$evaluation,$thoughts){
 
-    $items = [
+    $log[] = [
         'title' => $title,
         'authorName' => $authorName,
         'readStatus' => $readStatus,
         'evaluation' => $evaluation,
         'thoughts' => $thoughts,
     ];
-    $log[] = $items;
+
 }
 ?>
