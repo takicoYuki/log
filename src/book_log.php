@@ -1,6 +1,6 @@
 <?php
 
-$log = [];
+$logs = [];
 
 while(true){
     echo '1. 読書ログを登録' . PHP_EOL;
@@ -11,7 +11,7 @@ while(true){
 
     if ($num === '1'){
         //TODO 読書ログを登録
-        $log = createLogs();
+        $logs = createLogs();
         continue;
     }elseif($num === '2'){
         //TODO 読書ログを表示
@@ -20,12 +20,12 @@ while(true){
             echo '読書ログはまだ登録されていません' .PHP_EOL;
             continue;
         }
-        foreach($log as $logs){
-            echo '書籍名:' .  $logs[$title] . PHP_EOL;
-            echo '著者名:' .  $logs[$authorName] . PHP_EOL;
-            echo '読書状況:' .  $logs[$readStatus] . PHP_EOL;
-            echo '評価:' .  $logs[$evaluation] . PHP_EOL;
-            echo '感想:' .  $logs[$thoughts] . PHP_EOL;
+        foreach($logs as $log){
+            echo '書籍名:' .  $logs['title'] . PHP_EOL;
+            echo '著者名:' .  $logs['authorName'] . PHP_EOL;
+            echo '読書状況:' .  $logs['readStatus'] . PHP_EOL;
+            echo '評価:' .  $logs['evaluation'] . PHP_EOL;
+            echo '感想:' .  $logs['thoughts'] . PHP_EOL;
             echo '------------------------------------------' . PHP_EOL;
         }
         continue;
