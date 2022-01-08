@@ -15,7 +15,7 @@ while(true){
         echo '書籍名:';
         $title = trim(fgets(STDIN));
         echo '著者名:';
-        $AuthorName = trim(fgets(STDIN));
+        $authorName = trim(fgets(STDIN));
         echo '読書状況:';
         $readStatus = trim(fgets(STDIN));
         echo '評価:';
@@ -28,14 +28,14 @@ while(true){
     }elseif($num === '2'){
         //TODO 読書ログを表示
         $title = '';
-        $AuthorName = '';
+        $authorName = '';
         $readStatus = '';
         $evaluation = '';
         $thoughts = '';
         //TODO 後で削除する
         echo '登録されている読書ログを表示します' . PHP_EOL;
         echo '書籍名:' . $title . PHP_EOL;
-        echo '著者名:' . $AuthorName . PHP_EOL;
+        echo '著者名:' . $authorName . PHP_EOL;
         echo '読書状況:' . $readStatus . PHP_EOL;
         echo '評価:' . $evaluation . PHP_EOL;
         echo '感想:' . $thoughts . PHP_EOL;
@@ -53,7 +53,7 @@ function add_read_log($title,$authorName,$readStatus,$evaluation,$thoughts){
 
     $items = [
         'title' => $title,
-        'AuthorName' => $authorName,
+        'authorName' => $authorName,
         'readStatus' => $readStatus,
         'evaluation' => $evaluation,
         'thoughts' => $thoughts,
