@@ -27,18 +27,14 @@ while(true){
         continue;
     }elseif($num === '2'){
         //TODO 読書ログを表示
-        $title = '';
-        $authorName = '';
-        $readStatus = '';
-        $evaluation = '';
-        $thoughts = '';
-        //TODO 後で削除する
-        echo '登録されている読書ログを表示します' . PHP_EOL;
-        echo '書籍名:' . $title . PHP_EOL;
-        echo '著者名:' . $authorName . PHP_EOL;
-        echo '読書状況:' . $readStatus . PHP_EOL;
-        echo '評価:' . $evaluation . PHP_EOL;
-        echo '感想:' . $thoughts . PHP_EOL;
+        for($i = 0; $i < count($log); ++$i){
+            echo '登録されている読書ログを表示します' . PHP_EOL;
+            echo '書籍名:' .  $log[$i][$title] . PHP_EOL;
+            echo '著者名:' .  $log[$i][$authorName] . PHP_EOL;
+            echo '読書状況:' .  $log[$i][$readStatus] . PHP_EOL;
+            echo '評価:' .  $log[$i][$evaluation] . PHP_EOL;
+            echo '感想:' .  $log[$i][$thoughts] . PHP_EOL;
+        }
         continue;
     }elseif($num === '9'){
         //アプリケーションを終了
