@@ -16,10 +16,6 @@ while(true){
     }elseif($num === '2'){
         //TODO 読書ログを表示
         echo '登録されている読書ログを表示します' . PHP_EOL;
-        if(count($log) === 0 ){
-            echo '読書ログはまだ登録されていません' .PHP_EOL;
-            continue;
-        }
         foreach($logs as $log){
             echo '書籍名:' .  $log['title'] . PHP_EOL;
             echo '著者名:' .  $log['authorName'] . PHP_EOL;
