@@ -1,5 +1,7 @@
 <?php
 
+$log = [];
+
 while(true){
     echo '1. 読書ログを登録' . PHP_EOL;
     echo '2. 読書ログを表示' . PHP_EOL;
@@ -20,6 +22,7 @@ while(true){
         $evaluation = trim(fgets(STDIN));
         echo '感想:';
         $thoughts = trim(fgets(STDIN));
+        add_read_log($title, $authorName, $readStatus, $evaluation, $thoughts);
         echo '登録が完了しました';
         continue;
     }elseif($num === '2'){
@@ -43,4 +46,18 @@ while(true){
     }
 }
 
+/*
+    読書ログをlog配列に追加する
+*/
+function add_read_log($title,$authorName,$readStatus,$evaluation,$thoughts){
+
+    $items = [
+        'title' => $title,
+        'AuthorName' => $authorName,
+        'readStatus' => $readStatus,
+        'evaluation' => $evaluation,
+        'thoughts' => $thoughts,
+    ];
+    $log[] = $items;
+}
 ?>
