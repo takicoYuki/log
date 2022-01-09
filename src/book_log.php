@@ -18,15 +18,7 @@ while(true){
         continue;
     }elseif($num === '2'){
         //TODO 読書ログを表示
-        echo '登録されている読書ログを表示します' . PHP_EOL;
-        foreach($logs as $log){
-            echo '書籍名:' .  $log['title'] . PHP_EOL;
-            echo '著者名:' .  $log['authorName'] . PHP_EOL;
-            echo '読書状況:' .  $log['readStatus'] . PHP_EOL;
-            echo '評価:' .  $log['evaluation'] . PHP_EOL;
-            echo '感想:' .  $log['thoughts'] . PHP_EOL;
-            echo '------------------------------------------' . PHP_EOL;
-        }
+        vewLogs($logs);
         continue;
     }elseif($num === '9'){
         //アプリケーションを終了
@@ -62,8 +54,16 @@ function createLogs(){
 /*
     読書ログを表示させる
 */
-function echo_read_log(){
-
+function vewLogs($logs){
+    echo '登録されている読書ログを表示します' . PHP_EOL;
+    foreach ($logs as $log) {
+        echo '------------------------------------------' . PHP_EOL;
+        echo '書籍名:' .  $log['title'] . PHP_EOL;
+        echo '著者名:' .  $log['authorName'] . PHP_EOL;
+        echo '読書状況:' .  $log['readStatus'] . PHP_EOL;
+        echo '評価:' .  $log['evaluation'] . PHP_EOL;
+        echo '感想:' .  $log['thoughts'] . PHP_EOL;
+    }
 }
 
 ?>
