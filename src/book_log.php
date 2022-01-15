@@ -13,7 +13,7 @@ while(true){
 
     if ($num === '1'){
         //TODO 読書ログを登録
-        $logs[] = createLogs();
+        createLogs();
         continue;
     }elseif($num === '2'){
         //TODO 読書ログを表示
@@ -40,14 +40,7 @@ function createLogs(){
     $evaluation = trim(fgets(STDIN));
     echo '感想:';
     $thoughts = trim(fgets(STDIN));
-    echo '登録が完了しました';
-    return  [
-        'title' => $title,
-        'authorName' => $authorName,
-        'readStatus' => $readStatus,
-        'evaluation' => $evaluation,
-        'thoughts' => $thoughts,
-    ];
+    registerBookLog($title, $authorName, $readStatus, $evaluation, $thoughts);
 }
 
 /*
