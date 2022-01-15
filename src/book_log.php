@@ -3,7 +3,6 @@
 error_reporting(0);
 include "Warning.php";
 
-$logs = [];
 
 while(true){
     echo '1. 読書ログを登録' . PHP_EOL;
@@ -54,8 +53,9 @@ function createLogs(){
 /*
     読書ログを表示させる
 */
-function vewLogs($logs){
+function vewLogs(){
     echo '登録されている読書ログを表示します' . PHP_EOL;
+    $logs = getBookLog();
     foreach ($logs as $log) {
         echo '書籍名:' .  $log['title'] . PHP_EOL;
         echo '著者名:' .  $log['authorName'] . PHP_EOL;
@@ -64,6 +64,41 @@ function vewLogs($logs){
         echo '感想:' .  $log['thoughts'] . PHP_EOL;
         echo '------------------------------------------' . PHP_EOL;
     }
+}
+
+/*
+    DBに読書ログを登録する
+*/
+function registerBookLog($title, $authorName, $readStatus, $evaluation, $thoughts){
+
+    $link = mysqli_connect('db','book_log','pass','book_log');
+
+    if(!$link){
+        echo 'ERR:DB接続に失敗しました'.PHP_EOL;
+        echo 'ERR:'.mysqli_connect_errno().PHP_EOL;
+    }else{
+        echo 'INF:DBに接続しました'.PHP_EOL;
+        $link -> query("INSERT INTO reviews(title,author,status,score,summary)VALUES($title, $authorName,$readStatus,$evaluation,$thoughts);");
+    }
+}
+
+/*
+    DBから読書ログを取得する
+*/
+function getBookLog(){
+    $link = mysqli_connect('db', 'book_log', 'pass', 'book_log');
+    $result = null;
+
+    if (!$link) {
+        echo 'ERR:DB接続に失敗しました' . PHP_EOL;
+        echo 'ERR:' . mysqli_connect_errno() . PHP_EOL;
+    } else {
+        echo 'INF:DBに接続しました' . PHP_EOL;
+        $result = $link->query("SELECT * FROM reviews");
+        echo $result;
+    }
+
+    return $result;
 }
 
 ?>
